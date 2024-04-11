@@ -3,29 +3,23 @@ def encoder(s):
     for letter in s:
         num = int(letter)
         if num == 7:
-            new += "0"
+            new += 0
         elif num == 8:
-           new += "1"
+           new += 1
         elif num == 9:
-            new += "2"
+            new += 2
         else:
             num += 3
-            new += str(num)
+        new += str(num)
     return new
-def decoder(s):
-    new = ""
-    for letter in s:
-        num = int(letter)
-        if num == 2:
-            new += "9"
-        elif num == 1:
-            new += "8"
-        elif num == 0:
-            new+= "7"
-        else:
-            num -= 3
-            new += str(num)
-    return new
+def decoder(password):
+    decoded_password=''
+    for i in range(len(password)):
+        index_val=int(password[i])
+        index_val-=3
+        decoded_password+=str(index_val)
+    return decoded_password
+
 menu = """Menu
 -------------
 1. Encode
